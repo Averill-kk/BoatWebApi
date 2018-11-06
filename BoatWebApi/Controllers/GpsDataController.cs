@@ -24,7 +24,7 @@ namespace BoatWebApi.Controllers
         [HttpGet]
         public IEnumerable<GpsData> GetGps()
         {
-            return _context.Gps;
+            return _context.GpsDatas;
         }
 
         // GET: api/GpsData/5
@@ -36,7 +36,7 @@ namespace BoatWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var gpsData = await _context.Gps.FindAsync(id);
+            var gpsData = await _context.GpsDatas.FindAsync(id);
 
             if (gpsData == null)
             {
@@ -90,7 +90,7 @@ namespace BoatWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Gps.Add(gpsData);
+            _context.GpsDatas.Add(gpsData);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetGpsData", new { id = gpsData.Id }, gpsData);
@@ -105,13 +105,13 @@ namespace BoatWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var gpsData = await _context.Gps.FindAsync(id);
+            var gpsData = await _context.GpsDatas.FindAsync(id);
             if (gpsData == null)
             {
                 return NotFound();
             }
 
-            _context.Gps.Remove(gpsData);
+            _context.GpsDatas.Remove(gpsData);
             await _context.SaveChangesAsync();
 
             return Ok(gpsData);
@@ -119,7 +119,7 @@ namespace BoatWebApi.Controllers
 
         private bool GpsDataExists(int id)
         {
-            return _context.Gps.Any(e => e.Id == id);
+            return _context.GpsDatas.Any(e => e.Id == id);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace BoatWebApi.Models
 {
     public class GpsDataContext: DbContext
     {
-        public DbSet<GpsData> Gps { get; set; }
+        public DbSet<GpsData> GpsDatas { get; set; }
         public GpsDataContext(DbContextOptions<GpsDataContext> options):
             base(options)
         {
