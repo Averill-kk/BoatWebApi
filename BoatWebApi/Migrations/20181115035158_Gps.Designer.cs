@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoatWebApi.Migrations
 {
     [DbContext(typeof(GpsDataContext))]
-    [Migration("20181016045236_GpsBd")]
-    partial class GpsBd
+    [Migration("20181115035158_Gps")]
+    partial class Gps
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,25 @@ namespace BoatWebApi.Migrations
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("BoatWebApi.Models.GpsBoatData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Angle");
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Lontitude");
+
+                    b.Property<int>("Satellite");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GpsBoatDatas");
+                });
 
             modelBuilder.Entity("BoatWebApi.Models.GpsData", b =>
                 {
@@ -34,7 +53,7 @@ namespace BoatWebApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Gps");
+                    b.ToTable("GpsDatas");
                 });
 #pragma warning restore 612, 618
         }
