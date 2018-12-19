@@ -1,6 +1,6 @@
 using System;
 
-namespace BoatMonitoring.Models
+namespace BoatWebView.Models
 {
     public class ErrorViewModel
     {

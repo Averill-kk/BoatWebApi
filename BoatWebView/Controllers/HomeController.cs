@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BoatMonitoring.Models;
+using BoatWebView.Models;
 
-namespace BoatMonitoring.Controllers
+namespace BoatWebView.Controllers
 {
     public class HomeController : Controller
     {

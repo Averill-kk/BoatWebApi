@@ -92,7 +92,6 @@ namespace BoatWebApi.Controllers
 
             _context.GpsDatas.Add(gpsData);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetGpsData", new { id = gpsData.Id }, gpsData);
         }
 
